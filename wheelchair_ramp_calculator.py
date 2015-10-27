@@ -7,15 +7,16 @@ __email__ = "seg@well.com"
 
 import math
 
-patient_wt = 130
-wheelchair_wt = 30
 rr = 1.005
-ramp_incline_degrees = 4.78 # ADA incline of 1/12
+ramp_incline_degrees = 5.3 # ADA incline of 1/12 is 4.78deg
 
 
 radians = math.radians(ramp_incline_degrees)
-wt = patient_wt + wheelchair_wt
-wt_w_rr= wt*rr
 
-total_force = wt_w_rr * math.sin(radians)
-print(total_force)
+# collecting data for patients up to 300 pounds,
+wt = 60
+for i in range(60,300):
+    wt += 1
+    wt_w_rr = wt * rr
+    total_force = wt_w_rr * math.sin(radians)
+    print(str(wt) + " lbs   " + str("%.2f" % total_force) + " " + "lbs " + "  " + str(ramp_incline_degrees) + " degree incline" )
